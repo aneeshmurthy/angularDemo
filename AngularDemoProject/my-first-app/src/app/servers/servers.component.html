@@ -17,9 +17,10 @@
 
 <p *ngIf="toggle">Secret Passsword = 'tuna'</p>
 
-<p *ngFor="let toggle of totalToggle"
-    [ngClass]="{toggle: count >= 5}" >
+<div *ngFor="let toggle of totalToggle; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
+    [ngClass]="{toggle: i >= 4}" >
   {{ toggle }}
-</p>
+</div>
 <p *ngIf="serverCreated" >Server was created, server name is {{ serverName }}</p>
 <app-server *ngFor="let server of servers"></app-server>
